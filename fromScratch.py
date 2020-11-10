@@ -1,5 +1,5 @@
 '''
-This is a from scratch, implementation of a backpropogation ANN
+This is a from scratch, implementation of a backpropogation ANN, with momentum
 
 It uses the MNIST data set, although it is coded to be very general and easy to change for other data
 
@@ -19,6 +19,8 @@ import itertools
 
 
 # For this problem we have 784 input, 64 hidden and 10 output
+#784 is a 28x28 pixel image flattened into an input vector
+#10 output nodes for numbers 0-9
 class ANN():
     def __init__(self, input, realValue, testInput, testReal, learningRate, inNum=784, hiddenNum=64, outputNum=10):
         self.IHweights = self.genWeights(inNum, hiddenNum)
@@ -37,13 +39,15 @@ class ANN():
         return np.random.randn(n, m)
 
     # Sigmoid Activation Function
+    # Sigmoid is common, but there are lots of different functions you can use
     def sigmoid(self, a):
         a = 1 / (1 + np.exp(-a))
         return a
 
-    #This FeedForward is for testing only
+    # This FeedForward is for testing only
+    # Feed forward simply does the inputs * weights
     # The feedforward of the back propogation is
-    #hard coded into the train weights function
+    # hard coded into the train weights function
     def feedForward(self, x):
         # Turn 28x28 into 784x1
         sample = x.flatten()
@@ -60,8 +64,8 @@ class ANN():
         #Return the one hot encoded vector
         return np.asarray(predicted)
 
-    #Function that runs the testing
-    #Includes the outputs for testing
+    # Function that runs the testing
+    # Includes the outputs for testing
     def test(self,test):
         predictions = []
         #If testing data, change outputs to reflect
@@ -96,7 +100,8 @@ class ANN():
         plot_confusion_matrix(cm, classes=['0', '1', '2','3','4','5','6','7','8','9'],title=z)
         plt.show()
 
-    #Function to train the weights of the ANN
+    # Function to train the weights of the ANN
+    # This includes backpropogation
     def trainWeights(self):
         # This is for momentum
         previousDeltaWeightHO = []
