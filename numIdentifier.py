@@ -39,31 +39,31 @@ import itertools
 
 
 
-# plotImages from keras tutorial that she got from tensorflow website
-# def plotImages(images_arr)
-#     fig, azes = plt.subplots(1, 20, figsize = (20,20))
-#     axes = axes.flatten()
-#     for img, ax in zip(images_arr, axes):
-#         ax.imshow(img)
-#         ax.axis('off')
-#     plt.tight_layout()
-#     plt.show()
+plotImages from keras tutorial that she got from tensorflow website
+def plotImages(images_arr)
+    fig, azes = plt.subplots(1, 20, figsize = (20,20))
+    axes = axes.flatten()
+    for img, ax in zip(images_arr, axes):
+        ax.imshow(img)
+        ax.axis('off')
+    plt.tight_layout()
+    plt.show()
 
-# plotImages (imgs)
-# print(labels)
+plotImages (imgs)
+print(labels)
 
-# # from keras tutorial
-#  def model() #don't know if this needs to be a function or not
-#     model = Sequential([                                                     #3 is for colour format but do these have colour?? Should be black and white
-#         Conv2D(filters = 32, kernel_size = (3,3), activation = 'relu', padding = 'same', inpute_shape = (224,224,3)),
-#     #    review what this stuff means - other deep lizard videos
-#         MaxPool2d(pool_size = (2,2), strides = 2),
-#         Conv2D = 64, kernel_size = (3,3), activation = 'relu', padding = 'same'),
-#          MaxPool2d(pool_size = (2,2), strides = 2),
-#          Flatten(), #makes 1D I think
-#          Dense(units = 2, activation = 'softmax'),
+# from keras tutorial
+ def model() #don't know if this needs to be a function or not
+    model = Sequential([                                                     #3 is for colour format but do these have colour?? Should be black and white
+        Conv2D(filters = 32, kernel_size = (3,3), activation = 'relu', padding = 'same', inpute_shape = (224,224,3)),
+    #    review what this stuff means - other deep lizard videos
+        MaxPool2d(pool_size = (2,2), strides = 2),
+        Conv2D = 64, kernel_size = (3,3), activation = 'relu', padding = 'same'),
+         MaxPool2d(pool_size = (2,2), strides = 2),
+         Flatten(), #makes 1D I think
+         Dense(units = 2, activation = 'softmax'),
     
-#     ])
+    ])
 
     # model.summary() run this to see summary 
     #can use this since categroical_crossentropy works for more than 2 outputs
